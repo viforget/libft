@@ -6,7 +6,7 @@
 #    By: viforget <viforget@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/19 15:34:08 by viforget          #+#    #+#              #
-#    Updated: 2019/11/01 07:30:41 by viforget         ###   ########.fr        #
+#    Updated: 2019/11/03 09:26:41 by viforget         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,21 +57,21 @@ SRC_BONUS = ft_lstadd_back_bonus.c\
 			ft_lstnew_bonus.c\
 			ft_lstsize_bonus.c\
 
+CC = @gcc
+
+CFLAGS = -Wall -Wextra -Werror -c 
+
 OBJ = $(SRC:%.c=%.o)
 
 OBJ_BONUS = $(SRC_BONUS:%.c=%.o)
 
-FLAG = -Wall -Wextra -Werror -c -W
-
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-		@gcc $(FLAG) $(SRC)
 		@ar rc $(NAME) $(OBJ)
 		@echo "\033[32mCOMPILATION LIBFT\033[0m"
 
 bonus : $(OBJ_BONUS) $(NAME)
-		@gcc $(FLAG) -c $(SRC) $(SRC_BONUS)
 		@ar rc $(NAME) $(OBJ_BONUS)
 		@echo "\033[35mCOMPILATION BONUS\033[0m"
 
@@ -84,8 +84,5 @@ fclean :
 		@echo "\033[36mFCLEAN OK\033[0m"
 
 re : fclean all
-
-so:	$(OBJ) libft.h
-	gcc -shared -fPIC -Wl,-soname,libft.so -o libft.so $(OBJ)
 
 .PHONY:  all clean fclean re

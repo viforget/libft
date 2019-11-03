@@ -6,7 +6,7 @@
 /*   By: viforget <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/10 02:05:35 by viforget          #+#    #+#             */
-/*   Updated: 2019/11/01 08:38:55 by viforget         ###   ########.fr       */
+/*   Updated: 2019/11/02 16:05:49 by viforget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char		*ft_strtrim(char const *s, char const *set)
 	if (!s || !set || !*set)
 		return (NULL);
 	if (*s == '\0')
-		return (malloc(0));
+		return (ft_strdup(""));
 	while (ft_trim(s[0], set) == 1)
 	{
 		if (*s == '\0')
