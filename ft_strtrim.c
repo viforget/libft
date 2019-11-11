@@ -6,7 +6,7 @@
 /*   By: viforget <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/10 02:05:35 by viforget          #+#    #+#             */
-/*   Updated: 2019/11/02 16:05:49 by viforget         ###   ########.fr       */
+/*   Updated: 2019/11/09 23:39:11 by viforget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,12 @@ char		*ft_strtrim(char const *s, char const *set)
 	char	*str;
 	int		i;
 
-	if (!s || !set || !*set)
+	if (!s || !set)
 		return (NULL);
-	if (*s == '\0')
-		return (ft_strdup(""));
 	while (ft_trim(s[0], set) == 1)
 	{
 		if (*s == '\0')
-			return (malloc(0));
+			return (ft_strdup(""));
 		s++;
 	}
 	i = ft_strlen(s) - 1;
@@ -48,5 +46,6 @@ char		*ft_strtrim(char const *s, char const *set)
 	if (!(str = (char *)ft_calloc(sizeof(char), i + 1)))
 		return (NULL);
 	ft_strlcpy(str, s, i + 1);
+	str[i] = '\0';
 	return (str);
 }

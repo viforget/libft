@@ -6,7 +6,7 @@
 /*   By: viforget <viforget@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/22 21:56:08 by viforget          #+#    #+#             */
-/*   Updated: 2019/11/01 09:21:41 by viforget         ###   ########.fr       */
+/*   Updated: 2019/11/10 19:52:35 by viforget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 		nxt = alst->next;
 		del(alst->content);
 		free(alst);
-		alst->next = NULL;
-		alst = NULL;
 		alst = nxt;
 	}
 	*lst = NULL;

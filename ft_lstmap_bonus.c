@@ -6,7 +6,7 @@
 /*   By: viforget <viforget@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/23 08:34:14 by viforget          #+#    #+#             */
-/*   Updated: 2019/11/02 15:10:52 by viforget         ###   ########.fr       */
+/*   Updated: 2019/11/10 16:54:53 by viforget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,17 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list *alst;
 
-	if (!lst || !f || del == NULL || !(alst = ft_lstnew(f(lst->content))))
+	if (!lst || !del)
+		return (NULL);
+	if (!f)
+		return (lst);
+	if (!(alst = ft_lstnew(f(lst->content))))
 		return (NULL);
 	if (lst->next)
 	{
 		if (!(alst->next = ft_lstmap(lst->next, f, del)))
 		{
-			del(alst->content);
-			free(alst);
+			ft_lstdelone(lst, del);
 			return (NULL);
 		}
 	}

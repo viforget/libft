@@ -6,11 +6,15 @@
 #    By: viforget <viforget@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/19 15:34:08 by viforget          #+#    #+#              #
-#    Updated: 2019/11/03 09:26:41 by viforget         ###   ########.fr        #
+#    Updated: 2019/11/03 11:21:02 by viforget         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
+
+CC = @gcc
+
+CFLAGS = -Wall -Wextra -Werror -c 
 
 SRC = ft_atoi.c\
 	  ft_bzero.c\
@@ -21,10 +25,10 @@ SRC = ft_atoi.c\
 	  ft_isascii.c\
 	  ft_isdigit.c\
 	  ft_isprint.c\
-	  ft_memccpy.c\
 	  ft_memchr.c\
 	  ft_memcmp.c\
 	  ft_memcpy.c\
+	  ft_memccpy.c\
 	  ft_memmove.c\
 	  ft_memset.c\
 	  ft_putchar_fd.c\
@@ -56,10 +60,6 @@ SRC_BONUS = ft_lstadd_back_bonus.c\
 			ft_lstmap_bonus.c\
 			ft_lstnew_bonus.c\
 			ft_lstsize_bonus.c\
-
-CC = @gcc
-
-CFLAGS = -Wall -Wextra -Werror -c 
 
 OBJ = $(SRC:%.c=%.o)
 

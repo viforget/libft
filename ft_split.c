@@ -6,7 +6,7 @@
 /*   By: viforget <viforget@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/21 19:46:49 by viforget          #+#    #+#             */
-/*   Updated: 2019/11/01 08:29:13 by viforget         ###   ########.fr       */
+/*   Updated: 2019/11/09 23:39:46 by viforget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static	void	ft_freedom(char **tab, int i)
 	free(tab);
 }
 
-static	int		ft_tcl(const char *s, char c)
+static	int		count_w(const char *s, char c)
 {
 	int		ct;
 	int		page;
@@ -62,8 +62,8 @@ char			**ft_split(char const *s, char c)
 	i = 0;
 	if (!s)
 		return (NULL);
-	nb_word = ft_tcl((const char *)s, c);
-	if (!(t = (char **)calloc(sizeof(*t), (ft_tcl((const char *)s, c) + 1))))
+	nb_word = count_w((const char *)s, c);
+	if (!(t = (char **)malloc(sizeof(*t) * (nb_word + 1))))
 		return (NULL);
 	while (nb_word--)
 	{
