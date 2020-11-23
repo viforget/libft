@@ -49,7 +49,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	{
 		if (!(alst->next = ft_lstmap(lst->next, f, del)))
 		{
-			ft_lstdelone(lst, del);
+			ft_lstdelone(alst, del);
 			return (NULL);
 		}
 	}
